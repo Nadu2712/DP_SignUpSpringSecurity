@@ -1,6 +1,7 @@
 package com.example.dp_signupspringsecurity.config;
 
 import com.example.dp_signupspringsecurity.filter.JwtAuthFilter;
+import com.example.dp_signupspringsecurity.service.UserInfoUserDetailsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

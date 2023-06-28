@@ -1,5 +1,6 @@
-package com.example.dp_signupspringsecurity.config;
+package com.example.dp_signupspringsecurity.service;
 
+import com.example.dp_signupspringsecurity.config.UserInfoUserDetails;
 import com.example.dp_signupspringsecurity.entity.UserInfo;
 import com.example.dp_signupspringsecurity.repository.UserInfoRepository;
 import org.springframework.beans.factory.annotation.Autowired;

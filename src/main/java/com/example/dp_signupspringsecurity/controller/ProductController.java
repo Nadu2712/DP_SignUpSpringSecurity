@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/products")
+@RequestMapping("/api")
 public class ProductController {
 
     @Autowired
@@ -27,30 +27,25 @@ public class ProductController {
     @Autowired
     private AuthenticationManager authenticationManager;
 
-    @GetMapping("/welcome")
-    public String welcome() {
-        return "Welcome this endpoint is not secure";
-    }
-
-    @PostMapping("/new")
+    @PostMapping("/user/register")
     public String addNewUser(@RequestBody UserInfo userInfo) {
         return service.addUser(userInfo);
     }
 
-    @GetMapping("/all")
+    @GetMapping("/product/viewall")
     @PreAuthorize("hasAuthority('ROLE_ADMIN')")
     public List<Product> getAllTheProducts() {
         return service.getProducts();
     }
 
-    @GetMapping("/{id}")
+    @GetMapping("/product/{id}")
     @PreAuthorize("hasAuthority('ROLE_USER')")
     public Product getProductById(@PathVariable int id) {
         return service.getProduct(id);
     }
 
 
-    @PostMapping("/authenticate")
+    @PostMapping("/user /authenticate")
     public String authenticateAndGetToken(@RequestBody AuthRequest authRequest) {
         Authentication authentication = authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(authRequest.getUsername(), authRequest.getPassword()));
         if (authentication.isAuthenticated()) {

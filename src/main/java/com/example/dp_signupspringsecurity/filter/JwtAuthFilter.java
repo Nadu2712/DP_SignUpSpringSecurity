@@ -1,6 +1,6 @@
 package com.example.dp_signupspringsecurity.filter;
 
-import com.example.dp_signupspringsecurity.config.UserInfoUserDetailsService;
+import com.example.dp_signupspringsecurity.service.UserInfoUserDetailsService;
 import com.example.dp_signupspringsecurity.service.JwtService;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
