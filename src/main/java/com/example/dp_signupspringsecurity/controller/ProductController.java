@@ -45,7 +45,7 @@ public class ProductController {
     }
 
 
-    @PostMapping("/user /authenticate")
+    @PostMapping("/user/authenticate")
     public String authenticateAndGetToken(@RequestBody AuthRequest authRequest) {
         Authentication authentication = authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(authRequest.getUsername(), authRequest.getPassword()));
         if (authentication.isAuthenticated()) {
@@ -53,7 +53,5 @@ public class ProductController {
         } else {
             throw new UsernameNotFoundException("invalid user request !");
         }
-
-
     }
 }
