@@ -31,20 +31,16 @@ public class ProductController {
     public String addNewUser(@RequestBody UserInfo userInfo) {
         return service.addUser(userInfo);
     }
-
     @GetMapping("/product/viewall")
     @PreAuthorize("hasAuthority('ROLE_ADMIN')")
     public List<Product> getAllTheProducts() {
         return service.getProducts();
     }
-
     @GetMapping("/product/{id}")
     @PreAuthorize("hasAuthority('ROLE_USER')")
     public Product getProductById(@PathVariable int id) {
         return service.getProduct(id);
     }
-
-
     @PostMapping("/user/authenticate")
     public String authenticateAndGetToken(@RequestBody AuthRequest authRequest) {
         Authentication authentication = authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(authRequest.getUsername(), authRequest.getPassword()));
